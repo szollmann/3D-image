@@ -46,6 +46,21 @@ class Image3D {
       onInvisible: () => (this.blockRepaint = true)
     });
   }
+  
+  function onClick() {
+    // feature detect
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            window.addEventListener('deviceorientation', () => {});
+          }
+        })
+        .catch(console.error);
+    } else {
+      // handle regular non iOS 13+ devices
+    }
+  }
 
   async loadImage(src: string): Promise<HTMLImageElement> {
     const img: HTMLImageElement = new Image();
