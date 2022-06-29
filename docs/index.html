@@ -41,11 +41,13 @@
         overflow: hidden;
         font-family: "Montserrat", sans-serif;
       }
-      #mount {
+      #deck {
         width: 100%;
         height: 100vh;
       }
-      #mount canvas {
+      #deck
+      
+      canvas {
         display: block !important;
         object-fit: cover !important;
       }
@@ -86,9 +88,7 @@
     <div class="wrapper">
       
       <nav>
-        <div>
-        <button onclick="onClick()">Start</button>
-        </div>
+        
         <a class="heading" href="https://github.com/arturbien/3D-image"
           >3D-image.js</a
         >
@@ -99,9 +99,9 @@
       </nav>
        
       <div
-        id="mount"
-        data-src="./assets/mount.jpg"
-        data-depth-src="./assets/mount-depth.jpg"
+        id="deck"
+        data-src="./assets/deck.jpg"
+        data-depth-src="./assets/deck-depth.jpg"
            onclick="onClick()"
       ></div>
     </div>
@@ -121,8 +121,8 @@
   
   }
       
-      var mount = document.querySelector("#mount");
-      image3D.process(mount);
+      var deck = document.querySelector("#deck");
+      image3D.process(deck);
      
     </script>
   </body>
