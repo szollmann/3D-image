@@ -19,7 +19,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>3D-image.js</title>
+    <title>3D-image.js Device Motion Fix2.0</title>
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:100,200&display=swap"
       rel="stylesheet"
@@ -102,6 +102,20 @@
     <script>
       var mount = document.querySelector("#mount");
       image3D.process(mount);
+      function onClick() {
+    // feature detect
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            window.addEventListener('deviceorientation', () => {});
+          }
+        })
+        .catch(console.error);
+    } else {
+      // handle regular non iOS 13+ devices
+    }
+  }
     </script>
   </body>
 </html>
