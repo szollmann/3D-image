@@ -59,6 +59,20 @@
     <!-- <script src="https://unpkg.com/3d-image"></script> -->
     <script src="./3d-image.js"></script>
     <script>
+      function onClick() {
+    // feature detect
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            window.addEventListener('deviceorientation', () => {});
+          }
+        })
+        .catch(console.error);
+    } else {
+      // handle regular non iOS 13+ devices
+    }
+  }
       document.querySelectorAll(".swag").forEach(elem => {
         new Image3D(elem);
       });
