@@ -91,8 +91,11 @@
         <a class="github" href="https://github.com/arturbien/3D-image">
           <img src="./assets/github.jpg" alt="Github logo" />
         </a>
-        <button onclick="onClick()">Start</button>
+       
       </nav>
+       <div>
+        <button onclick="onClick()">Start</button>
+        </div>
       <div
         id="mount"
         data-src="./assets/mount.jpg"
@@ -101,9 +104,7 @@
     </div>
     <script src="https://unpkg.com/3d-image"></script>
     <script>
-      var mount = document.querySelector("#mount");
-      image3D.process(mount);
-      function onClick() {
+       function onClick() {
     // feature detect
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
       DeviceOrientationEvent.requestPermission()
@@ -117,6 +118,10 @@
       // handle regular non iOS 13+ devices
     }
   }
+      
+      var mount = document.querySelector("#mount");
+      image3D.process(mount);
+     
     </script>
   </body>
 </html>
